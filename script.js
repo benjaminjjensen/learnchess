@@ -1,3 +1,4 @@
+/* var er en container som opbevarer alt indhold - her indeholder der spørgsmål, knap, spørgsmålsbokse, scorecard mm. */
 var ul=document.getElementById('ul');
    var btn=document.getElementById('button');
    var scoreCard=document.getElementById('scoreCard');
@@ -32,17 +33,19 @@ var ul=document.getElementById('ul');
 
                           {q:'Hvilken brik kan kun rykke ét skridt fremad og kun dræbe skråt?',options:['Tårnet','Kongen','Bonden','Dronningen'],answer:3},
                           ],
+               
+                /*function udfører en bestemt opgave*/
                 index:0,
                 load:function(){
-                	   if(this.index<=this.questions.length-1){
+                	   if(this.index<=this.questions.length-1){       /*if betyder at hvis resultatet er rigtigt*/
                         quizBox.innerHTML=this.index+1+". "+this.questions[this.index].q;      
                         op1.innerHTML=this.questions[this.index].options[0];
                         op2.innerHTML=this.questions[this.index].options[1];
                         op3.innerHTML=this.questions[this.index].options[2];
                         op4.innerHTML=this.questions[this.index].options[3];
-                           this.scoreCard();
+                           this.scoreCard(); /* this referrer til scorecard som viser hvor mange rigtige man har fået*/
                         }
-                        else{
+                        else{     /*else betyder at hvis resultatet er forkert - her vises det at de tre forkerte svar sker der ingenting med når man har valgt sit svar*/
 
                         quizBox.innerHTML=""      
                         op1.style.display="none";
@@ -53,25 +56,25 @@ var ul=document.getElementById('ul');
                         }
                 },
                  next:function(){
-                    this.index++;
+                    this.index++; /* den stiger dvs går videre til næste spørgsmål*/
                     this.load();
                  },
                 check:function(ele){
                    
                          var id=ele.id.split('');
                          
-                         if(id[id.length-1]==this.questions[this.index].answer){
-                         	this.score++;
-                         	ele.className="korrekt";
-                         	ele.innerHTML="Korrekt";
-                         	this.scoreCard();
+                         if(id[id.length-1]==this.questions[this.index].answer){ 
+                         	this.score++; /*score stiger når man har svaret rigtigt*/
+                         	ele.className="korrekt"; /*class navn man style på i css*/
+                         	ele.innerHTML="Korrekt"; /*hvad skærmen viser når man har svaret korrekt*/
+                         	this.scoreCard(); /*korrekte svar vises igen på scorecard*/
                          }
-                         else{
-                         	ele.className="forkert";
-                         	ele.innerHTML="Forkert";
+                         else{   
+                         	ele.className="forkert"; /*class navn når man styler i css*/
+                         	ele.innerHTML="Forkert"; /*hvad skærmen viser når man har svaret forkert*/
                          }
                 },
-                notClickAble:function(){
+                notClickAble:function(){ 
                        for(let i=0;i<ul.children.length;i++){
                        	    ul.children[i].style.pointerEvents="none";
                        }
