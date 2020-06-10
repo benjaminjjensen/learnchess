@@ -1,16 +1,16 @@
-/* var er en container som opbevarer alt indhold - her indeholder der spørgsmål, knap, spørgsmålsbokse, scorecard mm. */
-var ul=document.getElementById('ul');
-   var btn=document.getElementById('button');
-   var scoreCard=document.getElementById('scoreCard');
-   var quizBox=document.getElementById('questionBox');
-  var op1=document.getElementById('op1');
+// var er en container som opbevarer indhold - indholdet her er selve quizzen med ul, button, scorecard, questionbox, op1, op2, op3, op4
+var ul=document.getElementById('ul'); // document refererer til HTML siden. den refererer her til id i HTML 'ul'
+   var btn=document.getElementById('button'); //getElementById er en method(method) som giver adgang til vores id på HTML siden. en method en funktion, og kan tage og give værdier  */
+   var scoreCard=document.getElementById('scoreCard'); // . betyder at vi er i gang med at tilføje en værdi til vores method 
+   var quizBox=document.getElementById('questionBox'); // ('questionBox') er en såkaldt parameter som giver en værdi til vores method. og det fører tilbage til vores HTML. herefter tillader den os at lave forskellige ting med den */
+  var op1=document.getElementById('op1'); 
   var op2=document.getElementById('op2');
   var op3=document.getElementById('op3');
   var op4=document.getElementById('op4');
 
 
-      var app={
-                questions:[
+      var app={ //app indeholder vores 10 spørgsmål
+                questions:[ 
                           
                   
                           {q:'Hvilken brik er den stærkeste og mest effektive?', options:['Bonden','Kongen','Springeren','Dronningen'],answer:4},
@@ -34,18 +34,18 @@ var ul=document.getElementById('ul');
                           {q:'Hvilken brik kan kun rykke ét skridt fremad og kun dræbe skråt?',options:['Tårnet','Kongen','Bonden','Dronningen'],answer:3},
                           ],
                
-                /*function udfører en bestemt opgave*/
+                
                 index:0,
-                load:function(){
-                	   if(this.index<=this.questions.length-1){       /*if betyder at hvis resultatet er rigtigt*/
+                load:function(){ //function udfører en opgave eller fastsætter en værdi
+                	   if(this.index<=this.questions.length-1){       //if er hvis resultatet er rigtigt
                         quizBox.innerHTML=this.index+1+". "+this.questions[this.index].q;      
-                        op1.innerHTML=this.questions[this.index].options[0];
-                        op2.innerHTML=this.questions[this.index].options[1];
+                        op1.innerHTML=this.questions[this.index].options[0]; /*innerHTML er hvad der er inde mellem tag'sne på selve HTML siden - her er det inde i svarmulighed nummer 1*/
+                        op2.innerHTML=this.questions[this.index].options[1]; 
                         op3.innerHTML=this.questions[this.index].options[2];
                         op4.innerHTML=this.questions[this.index].options[3];
-                           this.scoreCard(); /* this referrer til scorecard som viser hvor mange rigtige man har fået*/
+                           this.scoreCard(); // this referrer til scorecard som viser hvor mange rigtige man har fået*/
                         }
-                        else{     /*else betyder at hvis resultatet er forkert - her vises det at de tre forkerte svar sker der ingenting med når man har valgt sit svar*/
+                        else{     // else betyder at hvis resultatet er forkert - her vises det at de tre forkerte svar sker der ingenting med når man har valgt sit svar*/
 
                         quizBox.innerHTML=""      
                         op1.style.display="none";
@@ -55,19 +55,19 @@ var ul=document.getElementById('ul');
                         btn.style.display="none";
                         }
                 },
-                 next:function(){
+                 next:function(){ //
                     this.index++; /* den stiger dvs går videre til næste spørgsmål*/
                     this.load();
                  },
-                check:function(ele){
+                check:function(ele){ 
                    
                          var id=ele.id.split('');
                          
                          if(id[id.length-1]==this.questions[this.index].answer){ 
                          	this.score++; /*score stiger når man har svaret rigtigt*/
                          	ele.className="korrekt"; /*class navn man style på i css*/
-                         	ele.innerHTML="Korrekt"; /*hvad skærmen viser når man har svaret korrekt*/
-                         	this.scoreCard(); /*korrekte svar vises igen på scorecard*/
+                         	ele.innerHTML="Korrekt"; // hvad op1, op2, op3, op4 viser når man svare korrekt
+                         	this.scoreCard(); // this refererer til scorecard og
                          }
                          else{   
                          	ele.className="forkert"; /*class navn når man styler i css*/
@@ -89,7 +89,7 @@ var ul=document.getElementById('ul');
                 },
                 score:0,
                 scoreCard:function(){
-                	scoreCard.innerHTML=this.questions.length+"/"+this.score;
+                	scoreCard.innerHTML=this.questions.length+"/"+this.score; 
                 }
  
            }
@@ -102,7 +102,7 @@ var ul=document.getElementById('ul');
            	     app.notClickAble();
            }
 
-         function  next(){
+         function  next(){ //next er navnet på vores function
               app.next();
               app.clickAble();
          }
