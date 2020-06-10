@@ -56,18 +56,18 @@ var ul=document.getElementById('ul'); // document refererer til HTML siden. den 
                         }
                 },
                  next:function(){ //
-                    this.index++; /* den stiger dvs går videre til næste spørgsmål*/
-                    this.load();
+                    this.index++; // ++ forøger
+                    this.load(); //
                  },
                 check:function(ele){ 
                    
                          var id=ele.id.split('');
                          
                          if(id[id.length-1]==this.questions[this.index].answer){ 
-                         	this.score++; /*score stiger når man har svaret rigtigt*/
-                         	ele.className="korrekt"; /*class navn man style på i css*/
-                         	ele.innerHTML="Korrekt"; // hvad op1, op2, op3, op4 viser når man svare korrekt
-                         	this.scoreCard(); // this refererer til scorecard og
+                         	this.score++; // ++ forsøger scoren når man svarer rigtigt
+                         	ele.className="korrekt"; // class name man style på i css
+                         	ele.innerHTML="Korrekt"; // hvad op1, op2, op3, op4 viser når man svarer korrekt
+                         	this.scoreCard(); // this refererer til scorecard 
                          }
                          else{   
                          	ele.className="forkert"; /*class navn når man styler i css*/
@@ -75,7 +75,7 @@ var ul=document.getElementById('ul'); // document refererer til HTML siden. den 
                          }
                 },
                 notClickAble:function(){ 
-                       for(let i=0;i<ul.children.length;i++){
+                       for(let i=0;i<ul.children.length;i++){ 
                        	    ul.children[i].style.pointerEvents="none";
                        }
                 },
