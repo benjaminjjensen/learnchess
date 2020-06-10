@@ -34,6 +34,7 @@ body {
 .button {
     color: #FFFFF;
 }
+/* Banner */
 .banner {
     width: 100%;
     background-color: #FFA500;
@@ -60,6 +61,7 @@ body {
       from{ transform: translateX(-900px)}
       to{ transform: translateX(1000px)}
   }
+/* Breadcrumbs */
 .crumbs {
     text-align: center;
     margin-left: -1020px;
@@ -128,6 +130,7 @@ body {
         font-size: 30px;
         margin-bottom: 50px;
 }
+/* introduktion */
 .container-fluid {
     margin-bottom: 40px;
 }
@@ -137,6 +140,7 @@ h1 {
 p {
     font-size: 20px;
 }
+/* video grid */
 .container-grid {
     max-width: 1200px;
     margin: auto;
@@ -149,6 +153,7 @@ p {
     width: 390px;
     margin-top: 10px;
 }
+/* Quiz */
 .quiz_wrapper {
     height: 390px;
     width: 620px;
@@ -255,6 +260,7 @@ float: left;
 	border-radius: 8px;
     color:#ffffff;
  }
+/* Footer */
 footer {
         background: #FFA500;
         padding: 30px;
