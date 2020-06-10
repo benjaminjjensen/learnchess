@@ -37,15 +37,15 @@ var ul=document.getElementById('ul'); // document refererer til HTML siden. den 
                 
                 index:0,
                 load:function(){ //function udfører en opgave eller fastsætter en værdi
-                	   if(this.index<=this.questions.length-1){       //if er hvis resultatet er rigtigt
+                	   if(this.index<=this.questions.length-1){  //if er hvis resultatet er rigtigt
                         quizBox.innerHTML=this.index+1+". "+this.questions[this.index].q;      
-                        op1.innerHTML=this.questions[this.index].options[0]; /*innerHTML er hvad der er inde mellem tag'sne på selve HTML siden - her er det inde i svarmulighed nummer 1*/
+                        op1.innerHTML=this.questions[this.index].options[0]; //innerHTML er hvad der er inde mellem tag'sne på selve HTML siden - her er det inde i svarmulighed nummer 1
                         op2.innerHTML=this.questions[this.index].options[1]; 
                         op3.innerHTML=this.questions[this.index].options[2];
                         op4.innerHTML=this.questions[this.index].options[3];
-                           this.scoreCard(); // this referrer til scorecard som viser hvor mange rigtige man har fået*/
+                           this.scoreCard(); // this referrer til scorecard som viser hvor mange rigtige man har fået
                         }
-                        else{     // else betyder at hvis resultatet er forkert - her vises det at de tre forkerte svar sker der ingenting med når man har valgt sit svar*/
+                        else{  // else betyder at hvis resultatet er forkert - her vises det at de tre forkerte svar sker der ingenting med når man har valgt sit svar
 
                         quizBox.innerHTML=""      
                         op1.style.display="none";
@@ -67,11 +67,11 @@ var ul=document.getElementById('ul'); // document refererer til HTML siden. den 
                          	this.score++; // ++ forsøger scoren når man svarer rigtigt
                          	ele.className="korrekt"; // class name man style på i css
                          	ele.innerHTML="Korrekt"; // hvad op1, op2, op3, op4 viser når man svarer korrekt
-                         	this.scoreCard(); // this refererer til scorecard 
+                         	this.scoreCard(); //this refererer til scorecard 
                          }
                          else{   
-                         	ele.className="forkert"; /*class navn når man styler i css*/
-                         	ele.innerHTML="Forkert"; /*hvad skærmen viser når man har svaret forkert*/
+                         	ele.className="forkert"; //class navn når man styler i css
+                         	ele.innerHTML="Forkert"; //hvad skærmen viser når man har svaret forkert
                          }
                 },
                 notClickAble:function(){ 
